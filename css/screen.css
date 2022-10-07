@@ -74,6 +74,16 @@
     --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
     --global-input-focus-borderColor: var(--global-color-alpha);
     --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+
+    --global-page-color: var(--color-neutral-xxxx-dark);
+    --global-page-backgroundColor: var(--color-neutral-xxxx-light);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --global-page-color: White;
+        --global-page-backgroundColor: var(--color-neutral-xxxx-dark);
+    }
 }
 
 /*------------------------------------*\
@@ -89,11 +99,17 @@
 html {
     line-height: 1.5;
     font-family: "Inter Web", Helvetica, arial, sans-serif;
-    color: var(--global-color-neutral-xxxx-dark);
-    background-color: var(--global-color-neutral-xxxx-light);
+    color: var(--global-page-color);
+    background-color: var(--global-page-backgroundColor);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: #20223A;
+    }
 }
 
 *,
@@ -531,10 +547,21 @@ input::placeholder {
     fill: var(--global-color-alpha);
 }
 
+@media (prefers-color-scheme: dark) {
+    .c-logo__path--2 {
+        fill: white;
+    }
+}
+
 .c-logo__path--3 {
     fill: var(--global-color-alpha-x-dark);
 }
 
+@media (prefers-color-scheme: dark) {
+    .c-logo__path--3 {
+        fill: white;
+    }
+}
 /*
     Component: Card
     ---
@@ -549,6 +576,11 @@ input::placeholder {
     overflow: hidden;
 }
 
+@media (prefers-color-scheme: dark) {
+    .c-card {
+        background-color: #35374D;
+    }
+}
 /* Add padding to child for more flexibility */
 .c-card__body,
 .c-card__footer {
@@ -784,7 +816,32 @@ input::placeholder {
 
 .c-option--hidden:active+.c-custom-toggle .c-custom-toggle__fake-input::after {
     width: 30px;
-    background: hotpink;
+}
+
+li + li .c-custom-toggle {
+    border-top: 1px solid var(--custom-option-borderColor);
+    padding-top: 13px;
+    
+}
+
+.c-toggle-list__item {
+    margin-bottom: 10px;
+    margin-right: 0px;
+}
+
+.c-custom-select {
+    display: flex;
+    position: relative;
+}
+
+.c-custom-select__symbol {
+    display: flex;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    fill: var(--global-color-neutral-x-light);
+    right: 12px;
+    top: 12px;
 }
 
 /*
